@@ -10,9 +10,9 @@ spring:
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
 aliyun:
-  accessKeyID: LTAI4GEZ2MP2kJcFegu1mYsc
-  accessKeySecret: dQZxn4YfKM9r1IrOpNxIkZoyF774WJ
-  domain: dysmsapi.aliyuncs.com
-  regionId: cn-hangzhou
-  templateCode: SMS_205433124
+  accessKeyID: ******
+  accessKeySecret: ******
+  domain: ******
+  regionId: ******
+  templateCode: ******
   signName: ABC商城

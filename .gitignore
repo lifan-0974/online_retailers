@@ -1,0 +1,16 @@
+# Project exclude paths
+/jmsDemo/target/
+/springdatasolrDemo/target/
+/wrongggou-search-service/target/
+/wronggou-common/target/
+/wronggou-content-interface/target/
+/wronggou-content-service/target/
+/wronggou-dao/target/
+/wronggou-manager-web/target/
+/wronggou-pojo/target/
+/wronggou-portal-web/target/
+/wronggou-search-interface/target/
+/wronggou-search-web/target/
+/wronggou-sellergoods-interfaces/target/
+/wronggou-sellergoods-service/target/
+/wronggou-shop-web/target/

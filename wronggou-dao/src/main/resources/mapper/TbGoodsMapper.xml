@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wronggo.mapper.TbGoodsMapper">
+  <resultMap id="GoodsResultMap" type="com.wronggo.model.TbGoods">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="seller_id" jdbcType="VARCHAR" property="sellerId" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="default_item_id" jdbcType="BIGINT" property="defaultItemId" />
+    <result column="audit_status" jdbcType="VARCHAR" property="auditStatus" />
+    <result column="is_marketable" jdbcType="VARCHAR" property="isMarketable" />
+    <result column="brand_id" jdbcType="BIGINT" property="brandId" />
+    <result column="caption" jdbcType="VARCHAR" property="caption" />
+    <result column="category1_id" jdbcType="BIGINT" property="category1Id" />
+    <result column="category2_id" jdbcType="BIGINT" property="category2Id" />
+    <result column="category3_id" jdbcType="BIGINT" property="category3Id" />
+    <result column="small_pic" jdbcType="VARCHAR" property="smallPic" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="type_template_id" jdbcType="BIGINT" property="typeTemplateId" />
+    <result column="is_enable_spec" jdbcType="VARCHAR" property="isEnableSpec" />
+    <result column="is_delete" jdbcType="VARCHAR" property="isDelete" />
+  </resultMap>
+<select id="selectall" resultMap="GoodsResultMap">
+  select * from tb_goods
+</select>
+  <update id="updateByPrimaryKey" parameterType="com.wronggo.model.TbGoods">
+    update tb_goods
+    set seller_id = #{sellerId,jdbcType=VARCHAR},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      default_item_id = #{defaultItemId,jdbcType=BIGINT},
+      audit_status = #{auditStatus,jdbcType=VARCHAR},
+      is_marketable = #{isMarketable,jdbcType=VARCHAR},
+      brand_id = #{brandId,jdbcType=BIGINT},
+      caption = #{caption,jdbcType=VARCHAR},
+      category1_id = #{category1Id,jdbcType=BIGINT},
+      category2_id = #{category2Id,jdbcType=BIGINT},
+      category3_id = #{category3Id,jdbcType=BIGINT},
+      small_pic = #{smallPic,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      type_template_id = #{typeTemplateId,jdbcType=BIGINT},
+      is_enable_spec = #{isEnableSpec,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectbyid" resultMap="GoodsResultMap">
+  select * from tb_goods where id=#{id}
+</select>
+  <select id="selectbylike" resultMap="GoodsResultMap" parameterType="com.wronggo.model.TbBrand">
+    select * from tb_goods where 1=1
+
+    <if test="goodsName!=null and goodsName!=''">
+      and name like concat ('%',#{goodsName},'%')
+    </if>
+
+
+  </select>
+  <insert id="insertSelective" parameterType="com.wronggo.model.TbGoods">
+    <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+      SELECT LAST_INSERT_ID() AS id
+    </selectKey>
+    insert into tb_goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sellerId != null">
+        seller_id,
+      </if>
+      <if test="goodsName != null">
+        goods_name,
+      </if>
+      <if test="defaultItemId != null">
+        default_item_id,
+      </if>
+      <if test="auditStatus != null">
+        audit_status,
+      </if>
+      <if test="isMarketable != null">
+        is_marketable,
+      </if>
+      <if test="brandId != null">
+        brand_id,
+      </if>
+      <if test="caption != null">
+        caption,
+      </if>
+      <if test="category1Id != null">
+        category1_id,
+      </if>
+      <if test="category2Id != null">
+        category2_id,
+      </if>
+      <if test="category3Id != null">
+        category3_id,
+      </if>
+      <if test="smallPic != null">
+        small_pic,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="typeTemplateId != null">
+        type_template_id,
+      </if>
+      <if test="isEnableSpec != null">
+        is_enable_spec,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sellerId != null">
+        #{sellerId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsName != null">
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultItemId != null">
+        #{defaultItemId,jdbcType=BIGINT},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isMarketable != null">
+        #{isMarketable,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null">
+        #{brandId,jdbcType=BIGINT},
+      </if>
+      <if test="caption != null">
+        #{caption,jdbcType=VARCHAR},
+      </if>
+      <if test="category1Id != null">
+        #{category1Id,jdbcType=BIGINT},
+      </if>
+      <if test="category2Id != null">
+        #{category2Id,jdbcType=BIGINT},
+      </if>
+      <if test="category3Id != null">
+        #{category3Id,jdbcType=BIGINT},
+      </if>
+      <if test="smallPic != null">
+        #{smallPic,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="typeTemplateId != null">
+        #{typeTemplateId,jdbcType=BIGINT},
+      </if>
+      <if test="isEnableSpec != null">
+        #{isEnableSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+</mapper>

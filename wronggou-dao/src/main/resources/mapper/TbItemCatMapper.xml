@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wronggo.mapper.TbItemCatMapper">
+  <resultMap id="CatBaseResultMap" type="com.wronggo.model.TbItemCat">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type_id" jdbcType="BIGINT" property="typeId" />
+  </resultMap>
+
+  <select id="selectall" resultMap="CatBaseResultMap">
+    select *  from tb_item_cat
+
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="CatBaseResultMap">
+    select  * from tb_item_cat
+    where parent_id = #{parentId}
+  </select>
+
+  <select id="selectByid" parameterType="java.lang.Long" resultMap="CatBaseResultMap">
+    select  * from tb_item_cat
+    where id = #{id}
+  </select>
+  <insert id="insertSelective" parameterType="com.wronggo.model.TbItemCat">
+    insert into tb_item_cat
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="typeId != null">
+        type_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.wronggo.model.TbItemCat">
+    update tb_item_cat
+    set parent_id = #{parentId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      type_id = #{typeId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_item_cat
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/jmsDemo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springdatasolrDemo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wrongggou-search-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-content-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-content-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-dao/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-dao/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-manager-web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-manager-web/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-pojo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-pojo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-portal-web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-search-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-search-web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-sellergoods-interfaces/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-sellergoods-interfaces/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-sellergoods-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-sellergoods-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-shop-web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wronggou-shop-web/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

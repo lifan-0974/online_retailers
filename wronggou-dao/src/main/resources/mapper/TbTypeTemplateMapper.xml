@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wronggo.mapper.TbTypeTemplateMapper">
+  <resultMap id="typeResultMap" type="com.wronggo.model.TbTypeTemplate">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="spec_ids" jdbcType="VARCHAR" property="specIds" />
+    <result column="brand_ids" jdbcType="VARCHAR" property="brandIds" />
+    <result column="custom_attribute_items" jdbcType="VARCHAR" property="customAttributeItems" />
+  </resultMap>
+
+<select id="selectall" resultMap="typeResultMap">
+  select  * from  tb_type_template
+</select>
+  <select id="selectbyid" resultMap="typeResultMap">
+ select * from tb_type_template where id=#{id}
+  </select>
+  <insert id="insert" parameterType="com.wronggo.model.TbTypeTemplate">
+    insert into tb_type_template (id, name, spec_ids,
+      brand_ids, custom_attribute_items)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{specIds,jdbcType=VARCHAR},
+      #{brandIds,jdbcType=VARCHAR}, #{customAttributeItems,jdbcType=VARCHAR})
+  </insert>
+  <update id="update" parameterType="com.wronggo.model.TbTypeTemplate">
+    update tb_type_template
+    set id = #{id,jdbcType=BIGINT},
+    name = #{name,jdbcType=VARCHAR},
+    spec_ids = #{specIds,jdbcType=VARCHAR},
+    brand_ids = #{brandIds,jdbcType=VARCHAR},
+    custom_attribute_items = #{customAttributeItems,jdbcType=VARCHAR}
+ where  id=#{id}
+  </update>
+  <delete id="delete" parameterType="com.wronggo.model.TbTypeTemplate">
+delete from tb_type_template where id=#{id}
+  </delete>
+</mapper>

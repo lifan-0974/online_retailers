@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: solr
+  data:
+    solr:
+      host: http://127.0.0.1:8090/solr
+server:
+  port: 8081

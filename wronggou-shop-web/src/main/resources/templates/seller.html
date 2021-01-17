@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>商家完善资料</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+  
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="/plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+	<script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="plugins/angularjs/angular.min.js">  </script>
+    <!-- 分页组件开始 -->
+    <script src="/plugins/angularjs/pagination.js"></script>
+    <link rel="stylesheet" href="/plugins/angularjs/pagination.css">
+    <!-- 分页组件结束 -->
+    <script type="text/javascript" src="/js/base_pagination.js">  </script>
+    <script type="text/javascript" src="/js/service/sellerService.js">  </script>
+    <script type="text/javascript" src="/js/controller/baseController.js">  </script>
+    <script type="text/javascript" src="/js/controller/sellerController.js">  </script>
+    
+</head>
+
+<body class="hold-transition skin-red sidebar-mini" ng-app="wronggou" ng-controller="sellerController" ng-init="searchEntity={status:'0'}">
+
+
+
+            <!-- 正文区域 -->
+            <section class="content">
+
+                <div class="box-body">
+
+                    <!--tab页-->
+                    <div class="nav-tabs-custom">
+
+                        <!--tab头-->
+                        <ul class="nav nav-tabs">
+                       		
+                            <li class="active">
+                                <a href="#home" data-toggle="tab">商家信息</a>                             
+                            </li>                            
+                        </ul>
+                        <!--tab头/-->
+						
+                        <!--tab内容-->
+                        <div class="tab-content">
+                            <table class="table table-bordered table-striped"  width="800px">
+                                <tr>
+                                    <td>公司名称</td>
+                                    <td>{{entity.name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>店铺名称</td>
+                                    <td>{{entity.nickName}}</td>
+                                </tr>
+                                <tr>
+                                    <td>公司电话</td>
+                                    <td>{{entity.telephone}}</td>
+                                </tr>
+                                <tr>
+                                    <td>公司详细地址</td>
+                                    <td>{{entity.addressDetail}}</td>
+                                </tr>
+                            </table>
+
+
+							 
+                    </div>
+                 	
+                 	
+                 	
+                 	
+                   </div>
+                  <div class="btn-toolbar list-toolbar">
+				      <button class="btn btn-primary" ><i class="fa fa-save"></i>保存</button>
+				      <a  data-toggle="modal" class="btn btn-danger">提交</a>
+				  </div>
+			
+            </section>
+            <!-- 正文区域 /-->
+			
+       
+</body>
+
+</html>

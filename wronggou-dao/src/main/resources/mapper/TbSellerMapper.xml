@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wronggo.mapper.TbSellerMapper">
+  <resultMap id="SellerResultMap" type="com.wronggo.model.TbSeller">
+    <id column="seller_id" jdbcType="VARCHAR" property="sellerId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="address_detail" jdbcType="VARCHAR" property="addressDetail" />
+    <result column="linkman_name" jdbcType="VARCHAR" property="linkmanName" />
+    <result column="linkman_qq" jdbcType="VARCHAR" property="linkmanQq" />
+    <result column="linkman_mobile" jdbcType="VARCHAR" property="linkmanMobile" />
+    <result column="linkman_email" jdbcType="VARCHAR" property="linkmanEmail" />
+    <result column="license_number" jdbcType="VARCHAR" property="licenseNumber" />
+    <result column="tax_number" jdbcType="VARCHAR" property="taxNumber" />
+    <result column="org_number" jdbcType="VARCHAR" property="orgNumber" />
+    <result column="address" jdbcType="BIGINT" property="address" />
+    <result column="logo_pic" jdbcType="VARCHAR" property="logoPic" />
+    <result column="brief" jdbcType="VARCHAR" property="brief" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="legal_person" jdbcType="VARCHAR" property="legalPerson" />
+    <result column="legal_person_card_id" jdbcType="VARCHAR" property="legalPersonCardId" />
+    <result column="bank_user" jdbcType="VARCHAR" property="bankUser" />
+    <result column="bank_name" jdbcType="VARCHAR" property="bankName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    seller_id, name, nick_name, password, email, mobile, telephone, status, address_detail,
+    linkman_name, linkman_qq, linkman_mobile, linkman_email, license_number, tax_number,
+    org_number, address, logo_pic, brief, create_time, legal_person, legal_person_card_id,
+    bank_user, bank_name
+  </sql>
+  <select id="selectall" resultMap="SellerResultMap">
+  select * from tb_seller 
+</select>
+<select id="selectbyname" resultMap="SellerResultMap">
+  select * from tb_seller where seller_id=#{sellerId}
+</select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="SellerResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_seller
+    where seller_id = #{sellerId,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="com.wronggo.model.TbSeller">
+    insert into tb_seller (seller_id, name, nick_name, 
+      password, email, mobile, 
+      telephone, status, address_detail, 
+      linkman_name, linkman_qq, linkman_mobile, 
+      linkman_email, license_number, tax_number, 
+      org_number, address, logo_pic, 
+      brief, create_time, legal_person, 
+      legal_person_card_id, bank_user, bank_name
+      )
+    values (#{sellerId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{telephone,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{addressDetail,jdbcType=VARCHAR}, 
+      #{linkmanName,jdbcType=VARCHAR}, #{linkmanQq,jdbcType=VARCHAR}, #{linkmanMobile,jdbcType=VARCHAR}, 
+      #{linkmanEmail,jdbcType=VARCHAR}, #{licenseNumber,jdbcType=VARCHAR}, #{taxNumber,jdbcType=VARCHAR}, 
+      #{orgNumber,jdbcType=VARCHAR}, #{address,jdbcType=BIGINT}, #{logoPic,jdbcType=VARCHAR}, 
+      #{brief,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{legalPerson,jdbcType=VARCHAR}, 
+      #{legalPersonCardId,jdbcType=VARCHAR}, #{bankUser,jdbcType=VARCHAR}, #{bankName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.wronggo.model.TbSeller">
+    update tb_seller
+    set name = #{name,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      address_detail = #{addressDetail,jdbcType=VARCHAR},
+      linkman_name = #{linkmanName,jdbcType=VARCHAR},
+      linkman_qq = #{linkmanQq,jdbcType=VARCHAR},
+      linkman_mobile = #{linkmanMobile,jdbcType=VARCHAR},
+      linkman_email = #{linkmanEmail,jdbcType=VARCHAR},
+      license_number = #{licenseNumber,jdbcType=VARCHAR},
+      tax_number = #{taxNumber,jdbcType=VARCHAR},
+      org_number = #{orgNumber,jdbcType=VARCHAR},
+      address = #{address,jdbcType=BIGINT},
+      logo_pic = #{logoPic,jdbcType=VARCHAR},
+      brief = #{brief,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      legal_person = #{legalPerson,jdbcType=VARCHAR},
+      legal_person_card_id = #{legalPersonCardId,jdbcType=VARCHAR},
+      bank_user = #{bankUser,jdbcType=VARCHAR},
+      bank_name = #{bankName,jdbcType=VARCHAR}
+    where seller_id = #{sellerId,jdbcType=VARCHAR}
+  </update>
+</mapper>

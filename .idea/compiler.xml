@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wronggou-dao" />
+        <module name="wronggou-search-interface" />
+        <module name="wronggou-content-interface" />
+        <module name="wrongggou-search-service" />
+        <module name="wronggou-sellergoods-interfaces" />
+        <module name="wronggou-pojo" />
+        <module name="wronggou-controller" />
+        <module name="wronggou-manager-web" />
+        <module name="wronggou-search-service" />
+        <module name="jmsDemo" />
+        <module name="wronggou-content-service" />
+        <module name="springdatasolrDemo" />
+        <module name="wronggou-portal-web" />
+        <module name="wronggou-shop-web" />
+        <module name="wronggou-search-web" />
+        <module name="wronggou-sellergoods-service" />
+        <module name="wronggou-common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8">
+      <module name="wronggou-controller" target="1.8" />
+      <module name="wronggou-search-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="jmsDemo" options="-parameters" />
+      <module name="springdatasolrDemo" options="-parameters" />
+      <module name="wrongggou-search-service" options="-parameters" />
+      <module name="wronggou-common" options="-parameters" />
+      <module name="wronggou-content-interface" options="-parameters" />
+      <module name="wronggou-content-service" options="-parameters" />
+      <module name="wronggou-controller" options="-parameters" />
+      <module name="wronggou-dao" options="-parameters" />
+      <module name="wronggou-manager-web" options="-parameters" />
+      <module name="wronggou-pojo" options="-parameters" />
+      <module name="wronggou-portal-web" options="-parameters" />
+      <module name="wronggou-search-interface" options="-parameters" />
+      <module name="wronggou-search-service" options="-parameters" />
+      <module name="wronggou-search-web" options="-parameters" />
+      <module name="wronggou-sellergoods-interfaces" options="-parameters" />
+      <module name="wronggou-sellergoods-service" options="-parameters" />
+      <module name="wronggou-shop-web" options="-parameters" />
+    </option>
+  </component>
+</project>

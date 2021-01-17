@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wronggo.mapper.TbBrandMapper">
+    <resultMap id="BaseResultMap" type="com.wronggo.model.TbBrand">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="first_char" jdbcType="VARCHAR" property="firstChar" />
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+    id, name, first_char
+  </sql>
+  <select id="selectall" resultMap="BaseResultMap">
+    select * from tb_brand
+  </select>
+    <select id="selectbylike" resultMap="BaseResultMap" parameterType="com.wronggo.model.TbBrand">
+        select * from tb_brand where 1=1
+
+        <if test="name!=null and name!=''">
+            and name like concat ('%',#{name},'%')
+        </if>
+        <if test="firstChar!=null and firstChar!=''">
+            and first_char like concat('%',#{firstChar},'%')
+        </if>
+
+    </select>
+    <select id="selectOptionList"  resultType="java.util.Map" >
+    select id,name as text from tb_brand
+  </select>
+
+  <insert id="insert" parameterType="com.wronggo.model.TbBrand">
+    insert into tb_brand (id, name, first_char
+      )
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{firstChar,jdbcType=VARCHAR}
+      )
+  </insert>
+  <select id="selectbyid" resultType="com.wronggo.model.TbBrand">
+ select * from tb_brand where id=#{id}
+  </select>
+  <update id="update" parameterType="com.wronggo.model.TbBrand">
+    update  tb_brand set name=#{name},first_char=#{firstChar} where id=#{id}
+  </update>
+    <delete id="delete" parameterType="com.wronggo.model.TbBrand">
+delete from tb_brand where id=#{id}
+    </delete>
+    <select id="selectByExample" parameterType="com.wronggo.model.TbBrandExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from tb_brand
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+
+</mapper>

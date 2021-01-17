@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wronggo.mapper.TbGoodsDescMapper">
+  <resultMap id="TbGoodsDescMap" type="com.wronggo.model.TbGoodsDesc">
+    <id column="goods_id" jdbcType="BIGINT" property="goodsId" />
+    <result column="introduction" jdbcType="VARCHAR" property="introduction" />
+    <result column="specification_items" jdbcType="VARCHAR" property="specificationItems" />
+    <result column="custom_attribute_items" jdbcType="VARCHAR" property="customAttributeItems" />
+    <result column="item_images" jdbcType="VARCHAR" property="itemImages" />
+    <result column="package_list" jdbcType="VARCHAR" property="packageList" />
+    <result column="sale_service" jdbcType="VARCHAR" property="saleService" />
+  </resultMap>
+<select id="selectbyid" resultMap="TbGoodsDescMap">
+  select * from tb_goods_desc where goods_id=#{goods_id}
+</select>
+  <update id="updateByPrimaryKey" parameterType="com.wronggo.model.TbGoodsDesc">
+    update tb_goods_desc
+    set introduction = #{introduction,jdbcType=VARCHAR},
+      specification_items = #{specificationItems,jdbcType=VARCHAR},
+      custom_attribute_items = #{customAttributeItems,jdbcType=VARCHAR},
+      item_images = #{itemImages,jdbcType=VARCHAR},
+      package_list = #{packageList,jdbcType=VARCHAR},
+      sale_service = #{saleService,jdbcType=VARCHAR}
+    where goods_id = #{goodsId,jdbcType=BIGINT}
+  </update>
+  <insert id="insertSelective" parameterType="com.wronggo.model.TbGoodsDesc">
+    insert into tb_goods_desc
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        goods_id,
+      </if>
+      <if test="introduction != null">
+        introduction,
+      </if>
+      <if test="specificationItems != null">
+        specification_items,
+      </if>
+      <if test="customAttributeItems != null">
+        custom_attribute_items,
+      </if>
+      <if test="itemImages != null">
+        item_images,
+      </if>
+      <if test="packageList != null">
+        package_list,
+      </if>
+      <if test="saleService != null">
+        sale_service,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="introduction != null">
+        #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="specificationItems != null">
+        #{specificationItems,jdbcType=VARCHAR},
+      </if>
+      <if test="customAttributeItems != null">
+        #{customAttributeItems,jdbcType=VARCHAR},
+      </if>
+      <if test="itemImages != null">
+        #{itemImages,jdbcType=VARCHAR},
+      </if>
+      <if test="packageList != null">
+        #{packageList,jdbcType=VARCHAR},
+      </if>
+      <if test="saleService != null">
+        #{saleService,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+</mapper>

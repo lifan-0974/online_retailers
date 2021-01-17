@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wronggo.mapper.TbSpecificationMapper">
+  <resultMap id="TbResultMap" type="com.wronggo.model.TbSpecification">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="spec_name" jdbcType="VARCHAR" property="specName" />
+  </resultMap>
+<select id="selectall" resultMap="TbResultMap" >
+  select * from tb_specification
+</select>
+  <insert id="insert" parameterType="com.wronggo.model.TbSpecification">
+      <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+          SELECT LAST_INSERT_ID() AS id
+      </selectKey>
+    insert into tb_specification (id, spec_name )
+    values (#{id}, #{specName}
+      )
+  </insert>
+  <select id="selectbyid" resultMap="TbResultMap">
+ select * from tb_specification where id=#{id}
+  </select>
+  <update id="update" parameterType="com.wronggo.model.TbSpecification">
+    update  tb_specification set spec_name=#{specName} where id=#{id}
+  </update>
+  <delete id="delete" parameterType="com.wronggo.model.TbSpecification">
+delete from tb_specification where id=#{id}
+    </delete>
+    <select id="selectOptionList" resultType="java.util.Map">
+  	select id,spec_name as text from tb_specification
+  </select>
+</mapper>
